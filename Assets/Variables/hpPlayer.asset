@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7e50f431cbd32a44a17b3dfd5d797df, type: 3}
   m_Name: hpPlayer
   m_EditorClassIdentifier: 
-  valor: 4
+  valor: 3
