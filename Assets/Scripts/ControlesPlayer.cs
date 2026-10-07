@@ -38,7 +38,7 @@ public class ControlesPlayer : MonoBehaviour
     bool checkCayendo;
     bool saltando;
 
-    // Métodos para acceder al script ControlesPlayer desde cualquier lugar del juego
+    // Mï¿½todos para acceder al script ControlesPlayer desde cualquier lugar del juego
     private static ControlesPlayer _instance;
     public static ControlesPlayer Instance { get { return _instance; } }
     private void Awake()
@@ -67,7 +67,7 @@ public class ControlesPlayer : MonoBehaviour
     void DatosAnimator()
     {
         anim.SetBool("ground", grounded);
-        anim.SetFloat("velocidadX", (rb2d.velocity.x != 0)&&(horizontal !=0) ? 1 : 0);
+        anim.SetFloat("velocidadX", (rb2d.linearVelocity.x != 0)&&(horizontal !=0) ? 1 : 0);
     }
 
     void Saltar()
@@ -77,17 +77,17 @@ public class ControlesPlayer : MonoBehaviour
 
         if(grounded && Input.GetKeyDown(botonSalto))
         {
-            rb2d.velocity = new Vector2(rb2d.velocity.x,  datosSalto.velocidadSalto);
+            rb2d.linearVelocity = new Vector2(rb2d.linearVelocity.x,  datosSalto.velocidadSalto);
             SoundFXManager.instance.ReproducirSFX(sonidoSalto);
             StartCoroutine(CheckAterrizaje());
             saltando = true;
         }
 
 
-        if (rb2d.velocity.y < 0)
-            rb2d.velocity += new Vector2(0,  gravedad * (datosSalto.multiplicadorCaida - 1) * Time.deltaTime);
-        else if (rb2d.velocity.y > 0 && !Input.GetKey(botonSalto))
-            rb2d.velocity += new Vector2(0, gravedad * (datosSalto.multiplicadorSaltoBajo - 1) * Time.deltaTime);
+        if (rb2d.linearVelocity.y < 0)
+            rb2d.linearVelocity += new Vector2(0,  gravedad * (datosSalto.multiplicadorCaida - 1) * Time.deltaTime);
+        else if (rb2d.linearVelocity.y > 0 && !Input.GetKey(botonSalto))
+            rb2d.linearVelocity += new Vector2(0, gravedad * (datosSalto.multiplicadorSaltoBajo - 1) * Time.deltaTime);
 
 
 
@@ -125,7 +125,7 @@ public class ControlesPlayer : MonoBehaviour
     private void FixedUpdate()
     {
 
-        rb2d.velocity = new Vector2(horizontal , rb2d.velocity.y) ;
+        rb2d.linearVelocity = new Vector2(horizontal , rb2d.linearVelocity.y) ;
         if (isOnPlatform)
         {
 

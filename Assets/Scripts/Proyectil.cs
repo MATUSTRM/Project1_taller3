@@ -52,7 +52,7 @@ public class Proyectil : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rb2d.velocity = transform.right * velocidadBala;
+        rb2d.linearVelocity = transform.right * velocidadBala;
     }
 
 

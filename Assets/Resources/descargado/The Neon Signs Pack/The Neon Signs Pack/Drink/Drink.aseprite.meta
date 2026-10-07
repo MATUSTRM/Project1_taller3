@@ -8,6 +8,7 @@ ScriptedImporter:
   assetBundleName: 
   assetBundleVariant: 
   script: {fileID: 11500000, guid: 62a9f0aa5b59740cfbadc7e5f9823bb0, type: 3}
+  importerVersion: 1
   textureImporterSettings:
     alphaSource: 1
     mipMapMode: 0
@@ -105,6 +106,7 @@ ScriptedImporter:
     pivot: {x: 0, y: 0}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 0
@@ -126,6 +128,7 @@ ScriptedImporter:
     pivot: {x: 0.5, y: -0.071428575}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 4
@@ -146,6 +149,7 @@ ScriptedImporter:
     pivot: {x: 0.5, y: -0.071428575}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 4
@@ -166,6 +170,7 @@ ScriptedImporter:
     pivot: {x: 0.51724136, y: -0.033333335}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 4
@@ -186,6 +191,7 @@ ScriptedImporter:
     pivot: {x: 0.5, y: -0.071428575}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 4
@@ -206,6 +212,7 @@ ScriptedImporter:
     pivot: {x: 0.5, y: -0.071428575}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 4
@@ -226,6 +233,7 @@ ScriptedImporter:
     pivot: {x: 0.51724136, y: -0.03448276}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 4
@@ -246,6 +254,7 @@ ScriptedImporter:
     pivot: {x: 0.5, y: -0.071428575}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 4
@@ -266,6 +275,7 @@ ScriptedImporter:
     pivot: {x: 0.5, y: -0.071428575}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 41
@@ -286,6 +296,7 @@ ScriptedImporter:
     pivot: {x: 0.5, y: -0.03448276}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 41
@@ -306,6 +317,7 @@ ScriptedImporter:
     pivot: {x: 0.5, y: -0.071428575}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 41
@@ -324,86 +336,96 @@ ScriptedImporter:
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: -712531168
+    guid: 1588533152
     name: Drink
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: Drink_Frame_0
+    - name: Frame_0
       frameIndex: 0
+      additiveSortOrder: 0
       cellRect:
         x: 2
         y: 2
         width: 28
         height: 28
       spriteId: 2b90e6dae3fd8764e9beae8b8f73efdc
-    - name: Drink_Frame_1
+    - name: Frame_1
       frameIndex: 1
+      additiveSortOrder: 0
       cellRect:
         x: 2
         y: 2
         width: 28
         height: 28
       spriteId: 9747038a002908142a797a0d0403d0d0
-    - name: Drink_Frame_2
+    - name: Frame_2
       frameIndex: 2
+      additiveSortOrder: 0
       cellRect:
         x: 1
         y: 1
         width: 29
         height: 30
       spriteId: 8e8d0f0b7827bc14683e2c13d528136f
-    - name: Drink_Frame_3
+    - name: Frame_3
       frameIndex: 3
+      additiveSortOrder: 0
       cellRect:
         x: 2
         y: 2
         width: 28
         height: 28
       spriteId: 52701763ec2becc418498c9402bc7f11
-    - name: Drink_Frame_4
+    - name: Frame_4
       frameIndex: 4
+      additiveSortOrder: 0
       cellRect:
         x: 2
         y: 2
         width: 28
         height: 28
       spriteId: a5b155852db3c714ab754a45024a4165
-    - name: Drink_Frame_5
+    - name: Frame_5
       frameIndex: 5
+      additiveSortOrder: 0
       cellRect:
         x: 1
         y: 1
         width: 29
         height: 29
       spriteId: f7c4a6ad4f1403044bd09efddc8c4ee9
-    - name: Drink_Frame_6
+    - name: Frame_6
       frameIndex: 6
+      additiveSortOrder: 0
       cellRect:
         x: 2
         y: 2
         width: 28
         height: 28
       spriteId: 6204823f0a7545c4290c2035c794cc97
-    - name: Drink_Frame_7
+    - name: Frame_7
       frameIndex: 7
+      additiveSortOrder: 0
       cellRect:
         x: 2
         y: 2
         width: 28
         height: 28
       spriteId: 439affec50614c84190e64c1cb53bbef
-    - name: Drink_Frame_8
+    - name: Frame_8
       frameIndex: 8
+      additiveSortOrder: 0
       cellRect:
         x: 1
         y: 1
         width: 30
         height: 29
       spriteId: 023f83a7c799e7f4da87888060127f33
-    - name: Drink_Frame_9
+    - name: Frame_9
       frameIndex: 9
+      additiveSortOrder: 0
       cellRect:
         x: 2
         y: 2
@@ -417,3 +439,4 @@ ScriptedImporter:
   secondarySpriteTextures: []
   spritePackingTag: 
   canvasSize: {x: 32, y: 32}
+  previousTextureSize: {x: 128, y: 256}
