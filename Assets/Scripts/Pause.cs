@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement; // Importa el espacio de nombres necesario
 public class Pause : MonoBehaviour
 {
     public KeyCode botonpausa = KeyCode.Escape;
-    public GameObject menuPausa;
+    public Panel menuPausa;
     public GameObject menuOpciones;
     public UnityEvent Esta_pausado, Esta_reanudado;
     private bool estaPausado = false;
@@ -31,14 +31,14 @@ public class Pause : MonoBehaviour
     void Pausar()
     {
         Time.timeScale = 0;
-        menuPausa.SetActive(true);
+        menuPausa.gameObject.SetActive(true);
         estaPausado = true;
     }
 
     public void Reanudar()
     {
         Time.timeScale = 1;
-        menuPausa.SetActive(false);
+        menuPausa.gameObject.SetActive(false);
         estaPausado = false;
     }
 
@@ -59,6 +59,6 @@ public class Pause : MonoBehaviour
     public void ReiniciarJuego()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        Debug.Log("El juego se reiniciará...");
+        Debug.Log("El juego se reiniciarï¿½...");
     }
 }
