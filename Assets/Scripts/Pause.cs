@@ -18,12 +18,10 @@ public class Pause : MonoBehaviour
             if (estaPausado)
             {
                 Reanudar();
-                Esta_reanudado.Invoke();
             }
             else
             {
                 Pausar();
-                Esta_pausado.Invoke();
             }
         }
     }
@@ -33,6 +31,7 @@ public class Pause : MonoBehaviour
         Time.timeScale = 0;
         menuPausa.gameObject.SetActive(true);
         estaPausado = true;
+        Esta_pausado.Invoke();
     }
 
     public void Reanudar()
@@ -40,6 +39,7 @@ public class Pause : MonoBehaviour
         Time.timeScale = 1;
         menuPausa.gameObject.SetActive(false);
         estaPausado = false;
+        Esta_reanudado.Invoke();
     }
 
     public void MostrarMenuOpciones()
@@ -59,6 +59,6 @@ public class Pause : MonoBehaviour
     public void ReiniciarJuego()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        Debug.Log("El juego se reiniciar�...");
+        Debug.Log("El juego se reiniciara...");
     }
 }

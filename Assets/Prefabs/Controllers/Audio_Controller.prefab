@@ -45,13 +45,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioControls:
-  - audioName: Music GAME
+  - audioName: 'Music '
     audioSource: {fileID: 0}
     volumeSlider: {fileID: 0}
     increaseVolumeButton: {fileID: 0}
     decreaseVolumeButton: {fileID: 0}
     volumeAdjustSound: {fileID: 0}
-  - audioName: Music SFX
+  - audioName: SFX
     audioSource: {fileID: 0}
     volumeSlider: {fileID: 0}
     increaseVolumeButton: {fileID: 0}
