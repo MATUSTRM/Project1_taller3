@@ -1934,17 +1934,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4493011817545331442, guid: 91c5cdb302d9da04b9d8a745082e001e, type: 3}
   m_PrefabInstance: {fileID: 70850011}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &73369935 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3834423875877106723, guid: 0a785150fe5401745b63785f9472f80a, type: 3}
-  m_PrefabInstance: {fileID: 5938348543181752602}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &73369940 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1328686057072070691, guid: 0a785150fe5401745b63785f9472f80a, type: 3}
   m_PrefabInstance: {fileID: 5938348543181752602}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 73369935}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2fb71bc1f4a1882489c7fd50d02a0f61, type: 3}
@@ -1955,7 +1950,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 319276961849309842, guid: 0a785150fe5401745b63785f9472f80a, type: 3}
   m_PrefabInstance: {fileID: 5938348543181752602}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 73369935}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b571201cedcbbfb409f8b6b00a66f36c, type: 3}
@@ -1966,7 +1961,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1592169356894098928, guid: 0a785150fe5401745b63785f9472f80a, type: 3}
   m_PrefabInstance: {fileID: 5938348543181752602}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 73369935}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 263a07c903730624b9af48b3dd3e5207, type: 3}
@@ -83624,7 +83619,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 73369935}
+      - m_Target: {fileID: 2110880483}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
@@ -83634,7 +83629,7 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
+          m_BoolArgument: 1
         m_CallState: 2
       - m_Target: {fileID: 640609521}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
@@ -83672,9 +83667,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1922451364}
+      - m_Target: {fileID: 1922451366}
         m_TargetAssemblyTypeName: Timer, Assembly-CSharp
-        m_MethodName: MostrarTiempoTranscurrido
+        m_MethodName: MostrarTiempoAsignado
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -83748,6 +83743,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: ChangeCursor, Assembly-CSharp
         m_MethodName: On_cursor_texture
         m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 693059208}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
