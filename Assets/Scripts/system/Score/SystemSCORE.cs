@@ -1,23 +1,29 @@
 using System;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.UI; // Para manejar la imagen de la barra de tiempo de combo
+using UnityEngine.UI;
 using TMPro;
 
 public class SystemSCORE : MonoBehaviour
 {
-    public int score = 0; // Variable para almacenar el puntaje
-    public int pointsPerEvent = 100; // Cantidad de puntos que se sumar·n en cada evento
+    public int score = 0;
+    public int pointsPerEvent = 100;
     public int pointsPerFlag = 300;
-    public static int comboMultiplier = 1; // Multiplicador de combo inicial
-    public int maxComboMultiplier = 5; // M·ximo multiplicador de combo
-    public float comboTimeLimit = 5f; // LÌmite de tiempo para mantener el combo
-    public Image comboTimerImage; // Imagen para mostrar el tiempo restante del combo
 
-    private float comboTimer = 0f; // Temporizador de combo
-    private bool isComboActive = false; // Bandera para saber si el combo est· activo
+    public static int comboMultiplier = 1;
+    public int maxComboMultiplier = 5;
 
-    public UnityEvent onScoreChange; // Evento que se dispara cuando cambia el puntaje
+    public float comboTimeLimit = 5f;
+
+    [Header("UI COMBO")]
+    public Image comboTimerImage;
+    public TextMeshProUGUI comboText;
+
+    private float comboTimer = 0f;
+    private bool isComboActive = false;
+
+    [Header("EVENTOS")]
+    public UnityEvent onScoreChange;
     public UnityEvent double_Combo;
     public UnityEvent Triple_Combo;
     public UnityEvent quadra_Combo;
@@ -26,19 +32,24 @@ public class SystemSCORE : MonoBehaviour
 
     internal Action<int> onAddPoint;
 
-    // MÈtodo para sumar puntos al puntaje y gestionar el combo
+    // Sumar puntos y gestionar combo
     public void AddPoints()
     {
-
-
-        // AÒadir puntos base
+        // A√±adir puntos base
         score += pointsPerEvent * comboMultiplier;
 
-        // Incrementar el multiplicador de combo si estamos dentro del lÌmite de tiempo del combo
+        // Comprobar si se mantiene el combo
         if (comboTimer > 0)
         {
-            comboMultiplier = Mathf.Min(comboMultiplier + 1, maxComboMultiplier);
+            comboMultiplier = Mathf.Min(
+                comboMultiplier + 1,
+                maxComboMultiplier
+            );
 
+            // Actualizar texto
+            ActualizarComboText();
+
+            // Eventos dependiendo del combo
             if (comboMultiplier == 2)
             {
                 double_Combo.Invoke();
@@ -58,63 +69,113 @@ public class SystemSCORE : MonoBehaviour
         }
         else
         {
-            // Reiniciar el multiplicador de combo si no estamos dentro del lÌmite de tiempo del combo
+            // Reiniciar combo
             comboMultiplier = 1;
+
+            ActualizarComboText();
         }
 
-        // Reiniciar el temporizador de combo
+        // Reiniciar temporizador
         comboTimer = comboTimeLimit;
         isComboActive = true;
 
-        // Disparar evento de cambio de puntaje
+        // Evento de cambio de puntuaci√≥n
         onScoreChange.Invoke();
     }
 
+    // Puntos por recoger una bandera
     public void AddPointsForFlag()
     {
-        // AÒadir puntos por bandera
         score += pointsPerFlag;
 
-        // Disparar evento de cambio de puntaje
         onScoreChange.Invoke();
     }
 
     private void Update()
     {
-        // Actualizar el temporizador de combo
+        // Actualizar temporizador de combo
         if (comboTimer > 0)
         {
             comboTimer -= Time.deltaTime;
 
-            // Actualizar la imagen del temporizador de combo (fillAmount)
+            // Actualizar barra de combo
             if (comboTimerImage != null)
             {
-                comboTimerImage.fillAmount = comboTimer / comboTimeLimit;
+                comboTimerImage.fillAmount =
+                    comboTimer / comboTimeLimit;
             }
         }
         else if (isComboActive)
         {
-            // Si el combo ha terminado, invocar el evento y resetear la bandera
+            // El combo termin√≥
             end_Combo.Invoke();
+
             isComboActive = false;
+
+            // Reiniciar multiplicador
+            comboMultiplier = 1;
+
+            // Quitar texto
+            ActualizarComboText();
         }
     }
 
+    // Cambiar directamente el combo
     public void Combo_plus(int number_combo)
     {
         comboMultiplier = number_combo;
+
         comboTimer = comboTimeLimit + 10;
+
         maxComboMultiplier = number_combo;
+
         isComboActive = true;
+
+        // Actualizar texto
+        ActualizarComboText();
     }
 
+    // Actualizar texto del combo
+    public void ActualizarComboText()
+    {
+        if (comboText == null)
+            return;
 
+        switch (comboMultiplier)
+        {
+            case 1:
+                comboText.text = "";
+                break;
 
+            case 2:
+                comboText.text = "DOUBLE COMBO";
+                break;
+
+            case 3:
+                comboText.text = "TRIPLE COMBO";
+                break;
+
+            case 4:
+                comboText.text = "HYPER COMBO";
+                break;
+
+            case 5:
+                comboText.text = "ULTRA COMBO";
+                break;
+
+            default:
+                comboText.text = "x" + comboMultiplier + " COMBO";
+                break;
+        }
+    }
+
+    // Actualizar puntaje con TextMesh
     public void actualizar_puntaje_entext(TextMesh textmesh)
     {
         textmesh.text = score.ToString();
     }
 
+    // Actualizar puntaje con TextMeshPro
     public void actualizar_puntaje_entextPRO(TextMeshProUGUI textmesh)
     {
         textmesh.text = score.ToString();

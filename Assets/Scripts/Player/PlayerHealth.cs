@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -7,15 +8,24 @@ public class Collision2DEvent : UnityEvent<Collision2D> { }
 public class PlayerHealth : MonoBehaviour
 {
     public VariableInt playerHealth;
+    public UnityEvent AL_PERDER_VIDA;
     public Collision2DEvent FueTocado_Collider;
     public UnityEvent CERO_VIDAS_Collider;
-    public GameObject UI_Gameover;
+    public Panel UI_Gameover;
 
-    public UnityEvent AL_PERDER_VIDA;
+    public AudioClip sfx_game_over;
+    public AudioClip splat;
 
+    [SerializeField]private Timer timer;
+    [SerializeField]private ChangeCursor cursorManager;
+    [SerializeField]private PanelManager panelManager;
+    [SerializeField]private CameraShaker cameraShaker;
+    [SerializeField]private Muertes_player muertes_Player;
+
+    [SerializeField]UI_Manager ui_Manager;
     private void Start()
     {
-        //GetComponent<Trampa>().SI_TOCO_ACIDO.AddListener(ReducirVida);
+        
     }
 
     public void ReducirVida()
@@ -26,8 +36,7 @@ public class PlayerHealth : MonoBehaviour
         if (playerHealth.valor <= 0)
         {
             CERO_VIDAS_Collider.Invoke();
-
-            // Manejar la muerte del jugador aquí (reiniciar nivel, mostrar pantalla de game over, etc.)
+            // Manejar la muerte del jugador aquï¿½ (reiniciar nivel, mostrar pantalla de game over, etc.)
         }
 
     }
@@ -39,8 +48,8 @@ public class PlayerHealth : MonoBehaviour
         if (collision.collider.CompareTag("Enemy"))
         {
             AL_PERDER_VIDA.Invoke();
+            //REPRODUCIMOS EL SONIDO
         }
-        //muerto(collision); // Llamar a muerto y pasar la colisión
 
     }
     private void OnTriggerEnter2D(Collider2D collision)
@@ -50,11 +59,12 @@ public class PlayerHealth : MonoBehaviour
     //------------------------------------------------------------
     //FUNCIONES
 
+        
     public void muerto(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            // Si colisionó con un enemigo, reducir la vida del jugador
+            // Si colisionï¿½ con un enemigo, reducir la vida del jugador
             playerHealth.valor--;
             transform.position = CheckPointSystem.instance.UltimaPos;
             // Actualizar la UI
@@ -63,9 +73,18 @@ public class PlayerHealth : MonoBehaviour
             // Verificar si el jugador ha perdido todas sus vidas
             if (playerHealth.valor <= 0)
             {
+                timer.reanude_time();
+                ui_Manager.ActualizarPuntaje();
+                timer.PauseTimer();
+                cursorManager.On_cursor_texture();
+                gameObject.SetActive(false);
+                panelManager.CloseAllPanels();
+                UI_GAMEOVER();
+                muertes_Player.aumentar_muerte();
+                cameraShaker.ShakeCamerasStronger();
                 CERO_VIDAS_Collider.Invoke();
 
-                // Manejar la muerte del jugador aquí (reiniciar nivel, mostrar pantalla de game over, etc.)
+                // Manejar la muerte del jugador aquï¿½ (reiniciar nivel, mostrar pantalla de game over, etc.)
             }
         }
     }
@@ -73,7 +92,7 @@ public class PlayerHealth : MonoBehaviour
     {
         if (collision.CompareTag("Lava"))
         {
-            // Si colisionó con un enemigo, reducir la vida del jugador
+            // Si colisionï¿½ con un enemigo, reducir la vida del jugador
             playerHealth.valor--;
             transform.position = CheckPointSystem.instance.UltimaPos;
             // Actualizar la UI
@@ -84,7 +103,7 @@ public class PlayerHealth : MonoBehaviour
             {
                 CERO_VIDAS_Collider.Invoke();
 
-                // Manejar la muerte del jugador aquí (reiniciar nivel, mostrar pantalla de game over, etc.)
+                // Manejar la muerte del jugador aquï¿½ (reiniciar nivel, mostrar pantalla de game over, etc.)
             }
         }
     }
@@ -97,7 +116,6 @@ public class PlayerHealth : MonoBehaviour
 
     public void UI_GAMEOVER()
     {
-        UI_Gameover.SetActive(true);
-        Time.timeScale = 0;
+        UI_Gameover.gameObject.SetActive(true);
     }
 }

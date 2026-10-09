@@ -22,9 +22,9 @@ public class Timer : MonoBehaviour
 
     private bool isPaused = false;
     private bool isRunning = false;
-    private bool hasExecutedEndEvent = false; // Bandera para indicar si el evento de finalización del tiempo ya se ha ejecutado
+    private bool hasExecutedEndEvent = false; // Bandera para indicar si el evento de finalizaciï¿½n del tiempo ya se ha ejecutado
 
-    public static event System.Action<int> OnTiempoAgregado; // Evento estático que se dispara cuando se agrega tiempo
+    public static event System.Action<int> OnTiempoAgregado; // Evento estï¿½tico que se dispara cuando se agrega tiempo
     void Start()
     {
         MostrarTiempoAsignado();
@@ -50,7 +50,7 @@ public class Timer : MonoBehaviour
                 {
                     EndTimer.Invoke();
                     contador_restante = contador_restante_max;
-                    hasExecutedEndEvent = true; // Marca que el evento de finalización se ha ejecutado
+                    hasExecutedEndEvent = true; // Marca que el evento de finalizaciï¿½n se ha ejecutado
                 }
             }
 
@@ -115,9 +115,10 @@ public class Timer : MonoBehaviour
         OnTiempoAgregado?.Invoke(tiempoAgregado);
     }
 
-    // Método para obtener el tiempo transcurrido
+    // Mï¿½todo para obtener el tiempo transcurrido
     public float GetTiempoTranscurrido()
     {
         return tiempoTranscurrido;
     }
+
 }
